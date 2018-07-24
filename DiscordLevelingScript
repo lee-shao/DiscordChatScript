@@ -1,0 +1,203 @@
+#SingleInstance force ;Script kann nicht mehrmals hintereinander gestartet werden.
+SetTitleMatchMode, 2
+SetTitleMatchMode, Slow
+
+Random, RandomSplashTextSleep, 500, 1000
+
+#CommentFlag
+SplashTextOn,,, Searching if Discord is installed...
+Sleep, %RandomSplashTextSleep%
+SplashTextOff
+SplashTextOn,,, Discord is installed.
+Sleep, %RandomSplashTextSleep%
+SplashTextOff
+
+;Wenn Discord existiert, dann aktivieren. 
+;Sonst MsgBox um Discord öffnen zu lassen oder abzubrechen.
+IfWinExist ahk_exe Discord.exe
+	WinActivate ahk_exe Discord.exe
+else
+{
+MsgBox, 4, , Discord is not running. Do you want to run Discord?
+IfMsgBox No
+	return
+IfMsgBox Yes
+	SplashTextOn,,, Trying to run Discord...
+	Sleep, %RandomSplashTextSleep%
+	SplashTextOff
+	Run C:\Users\%Username%\AppData\Local\Discord\app-0.0.301\Discord.exe
+}
+
+;Wenn Discord nach 5 Sekunden nicht erkannt wird, dann Fehlermeldung.
+;Ansonsten msgBox anzeigen, wie man den Script benutzt und 
+;dass man den richtigen Text Channel aussuchen soll.
+SplashTextOn,,, Trying to detect Discord...
+Sleep, 5000
+SplashTextOff
+IfWinNotExist ahk_exe Discord.exe
+	{
+	msgBox , 4096, Error, Couldn't run Discord. Open Discord manually and try again. , 10 ; 4096 = Always On Top , 5 = Timeout in 10 Sekunden
+	}
+	else 
+		{
+		SplashTextOn,,, Discord detected.
+		Sleep %RandomSplashTextSleep%
+		SplashTextOff
+		WinActivate Discord
+		msgBox , 4096, Hotkeys, Choose the correct server and channel for the script and then press on the chat once.`nF1 Start Script. F2 Resume Script. F3 Pause Script. F4 Close Script. , 10 ; 4096 = Always On Top , 10 = Timeout in 10 Sekunden , große Lücke damit Msgbox richtig angezeigt wird.
+		}
+
+list :=
+(
+"
+Dies ist keine automatisierte Nachricht.|
+Boruto Episode 65 hat mies geballert.|
+Die Muh macht Kuh.|
+Die Kuh macht Muh.|
+Miauen ist gesund für die Haut.|
+League Of Legends ist ungesund für die Haut.|
+Jeden Tag soosen muss sein.|
+Miau Meow Miau Meow.|
+lol lol lol.|
+Gary ist eine miauende Schnecke.|
+Ich hasse es, meine eigene Stimme zu hören.|
+Warst du beim Friseur?|
+Diesmal schenken wir uns aber nichts.|
+Da wäre auch noch ein Parkplatz gewesen.|
+Am meisten vermisse ich das deutsche Brot.|
+Was denkst du gerade?|
+Ich bin ja mit Namen ganz schlecht.|
+Dir kann man nichts schenken, du hast ja schon alles.|
+Ist da schon Salz drin?|
+Das hab‘ ich auch. Das ist von IKEA, oder?|
+Das kann man ja auch noch kalt essen.|
+Kann ich so gehen?|
+Ihr wart dann auf einmal irgendwie weg.|
+Das Jahr ist wieder irgendwie so schnell vergangen.|
+Das möchte ich gar nicht wissen.|
+Lustig. Gerade habe ich an dich gedacht.|
+Du, wir müssen ja auch gar nicht so lange bleiben.|
+Gut, dass wir reserviert haben.|
+Wo ist denn die Fernbedienung?|
+Jetzt mal ganz ehrlich gesagt.|
+Da hätte ich ein Problem mit.|
+Die sind doch auch schon ewig zusammen.|
+Ich hab‘ irgendwie noch gar keinen Hunger.|
+Sieht irgendwie zu aus.|
+Mir fehlen einfach die Berge.|
+Ist hier rechts vor links?|
+Störe ich gerade?|
+Also morgen ist ja genau genommen schon heute.|
+Das hab‘ ich akustisch nicht verstanden.|
+Ich bin noch gar nicht in Weihnachtsstimmung.|
+Ladies and gentlemen, welcome aboard Delta Airlines flight 2998 bound for Atlanta, Gorgia, with continued service to Dallas FT Worth international airport.|
+All carry on items should now be stored securely, either in an overhead bin or under the seat in front of you.|
+All aisles, exits, and bulkhead areas should now be clear.|
+All electronic devices, should now be turned off and stowed, as they may interfere with the aircraft's navigational and communication systems.|
+Once airborne, we'll let you know when you may use approved electronic devices, but note that some items may not be used at anytime during the flight.|
+You'll find a list of approved devices in the in-flight information section of sky magazine.|
+If you're seated in an emergency exit, please review the responsibilities for emergency exit seating on the back of the safety information card located in the seat pocket in front of you.|
+If you are unable or prefer not to perform these functions, please let us know, and we'll be happy to find you another seat.|
+As we leave the gate, make sure your seatbelt is fastened.|
+To fasten, insert the metal tip into the buckle, and adjust the strap so it's low and tight across your lap.|
+To release the belt, lift the top of the buckle.|
+Remain seated with your seatbelt securely fastened anytime the seatbelt sign is on.|
+Even if the sign is off, we ask that you keep your seatbelt fastened while seated in case we experience some unexpected turbulence.|
+For everyone's safety, federal regulations require all passengers to comply with the posted placards and lighted signs located throughout the cabin, as well as any crew-member instructions.|
+Smoking is not allowed on any delta flight, and federal law prohibits tampering with, disabling, or destroying a restroom smoke detector.|
+There are twelve exits on our Boeing 747-400. 12 doors, 5 on each side of the main deck, and one door on each side of the upper deck. 8 of the doors on the main deck have detachable slides that can be used as rafts.|
+The doors on the upper deck, and those above the wings, have slides that may be used in land evacuation only.|
+All exits are clearly marked with an exit sign, however, if we experience a loss of power resulting in cabin visibility being reduced, white lights illuminating the isle will guide you to red lights marking each of the exits.|
+Please take a moment to find the exits closest to you, keeping in mind that your closest exit may be behind you.|
+If there is a drop in cabin pressure, panels above your seat will open, revealing oxygen masks.|
+If this happens, pull a mask toward you until the tube is fully extended, place the mask over your nose and mouth, slip the elastic strap over your head, and adjust the mask if necessary.|
+Breathe normally and note that oxygen is flowing, even if the bag doesn't inflate.|
+Be sure to adjust your own mask, before helping others.|
+A water evacuation is unlikely during this flight, however, life vests are located under your seats in the economy cabin.|
+If you're seated in the first or business class cabins, life vests are either between your seats, under your seats, or in the compartment under your armrest.|
+To use, pull the tab to remove the vest from it's container.|
+Open the pouch, slip the vest over your head, and fasten the two straps to the front of the vest, and then adjust the vest to fit loosely around your waist.|
+As you leave the plane, inflate it by pulling down on the red tabs at the bottom of the vest, or manually inflate it by blowing into the tubes at shoulder level.|
+You can activate a light by pulling down on the tab in front.|
+Most seat cushions can be used for flotation as well.|
+Before we take off, be sure your seat backs are in the upright and locked position, your tray table is put away, and all carry on items are securely stowed.|
+As we come through the cabin for our final safety checks, please let us know if you have any questions.|
+We ask that you all review the safety information card located in the seat pocket in front of you.|
+Once again, welcome aboard Delta Airlines flight 2998 to Atlanta, and thank you for flying delta.|
+:grinning: :grinning: :grinning:|
+:grimacing:|
+:grin: :grin: :grin: :grin:|
+:scream: :scream: :scream: :scream: :scream: :scream:
+"
+)
+
+;//////Broken, erkennt nur physikalische Tastenanschläge, fixxen oder einfach löschen ist nicht unbedingt notwendig :)
+;GetKeyState, state, Shift
+;If state = D
+;{
+;	Gui,+AlwaysOnTop
+;	Gui, Add, Text, vCount w100, 0 Sentences have been written.
+;	Gui, Show
+;
+;	Count := 0
+;
+;	~enter::
+;	Count := Count + 1
+;	GuiControl,,Count, %Count% Sentences have been written.
+;	KeyWait, enter
+;}
+;return
+
+f2::
+	{
+	SplashTextOn,,, Resuming Script...
+	Sleep, 1000
+	SplashTextOff
+	Pause Off
+	}
+
+f3::
+	{
+	SplashTextOn,,, Stopping Script...
+	Sleep, 1000
+	SplashTextOff
+	Pause
+	}
+	
+f4::
+	{
+	SplashTextOn,200,85,,Made By`nMisoRamen`nFeindHammer`nTheRealChicken
+	Sleep, 1000
+	SplashTextOff
+	ExitApp
+	}
+
+f1::
+Loop
+	{
+	Random, RandomList, 1, 78 ;MaxIndex je nach Anzahl der Sätze anpassen
+	stringsplit, list, list, |
+
+	if (RandomList != current)
+		{
+		Send, % list%RandomList%
+		Send, {enter}
+		}
+
+	Random, RandomSleep, 1000, 5000 ;Sleepzeiten noch optimierbar
+	Sleep, %RandomSleep%
+
+	current = %RandomList%
+	}
+return
+
+;To Do List:
+;Script im Hintergrund laufen lassen, sodass man währenddessen
+;andere Sachen machen kann und vom Script nicht gestört wird.
+;Gui fixxen
+;Bilder Logos hinzufügen
+;Danach fertig :)
+
+
+
+
